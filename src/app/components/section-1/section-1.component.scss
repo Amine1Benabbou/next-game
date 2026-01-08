@@ -1,0 +1,88 @@
+.bg-img {
+  background-image: url('../../../assets/imgs/main_page/section-1/7.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+}
+
+
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-down {
+  opacity: 0;
+  animation: fadeDown 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.animate-fade-down[style*="animation-delay: 0s;"] {
+  animation-delay: 0s !important;
+}
+.animate-fade-down[style*="animation-delay: 0.4s;"] {
+  animation-delay: 0.4s !important;
+}
+.animate-fade-down[style*="animation-delay: 0.8s;"] {
+  animation-delay: 0.8s !important;
+}
+
+@keyframes enhancedFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.94) rotate(-3deg);
+    filter: blur(8px) brightness(70%);
+  }
+  70% {
+    filter: blur(2px) brightness(110%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+    filter: blur(0px) brightness(100%);
+  }
+}
+.enhanced-fade-in {
+  opacity: 0;
+  animation: enhancedFadeIn 1.2s cubic-bezier(0.19, 0.7, 0.33, 1.25) forwards;
+}
+.enhanced-fade-in[style*="animation-delay: 0.1s"] {
+  animation-delay: 0.1s !important;
+}
+.enhanced-fade-in[style*="animation-delay: 0.3s"] {
+  animation-delay: 0.3s !important;
+}
+.enhanced-fade-in[style*="animation-delay: 0.5s"] {
+  animation-delay: 0.5s !important;
+}
+.enhanced-fade-in[style*="animation-delay: 0.7s"] {
+  animation-delay: 0.7s !important;
+}
+
+
+.fade-in {
+  opacity: 0;
+  animation: fadeImgIn 1s forwards;
+}
+.fade-in[style*="animation-delay: 0.8s;"] {
+  animation-delay: 0.8s !important;
+}
+.fade-in[style*="animation-delay: 1.6s;"] {
+  animation-delay: 1.6s !important;
+}
+.fade-in[style*="animation-delay: 2.4s;"] {
+  animation-delay: 2.4s !important;
+}
+@keyframes fadeImgIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

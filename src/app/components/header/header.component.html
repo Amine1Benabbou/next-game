@@ -1,0 +1,129 @@
+<header
+  class="header flex-component text-white"
+  style="position: sticky; z-index: 700000000000"
+>
+  <!-- Brand name -->
+  <a
+    class="flex-component left-side flex-component animated-label"
+    [routerLink]="[listMenu[0].link]"
+  >
+    <span class="label">Next</span><span class="label">GAME</span>
+  </a>
+
+  <!-- Menu -->
+  <div class="flex-component middle-side">
+    <a
+      *ngFor="let chose of listMenu; let i = index"
+      class="label"
+      [routerLink]="[chose.link]"
+      [ngClass]="{ active: i === headerService.currentPage }"
+      (click)="headerService.selectPage(i)"
+    >
+      {{ fixedPathTranslate + "ITEMS." + chose.name | translate }}
+    </a>
+  </div>
+
+  <div class="flex-component right-side flex items-center">
+    <!-- Translate -->
+    <button
+      class="flex-component relative"
+      (click)="traductionVisibility = !traductionVisibility"
+    >
+      <img
+        [src]="
+          'assets/imgs/main_page/header/' + this.langagueIcones[0] + '.png'
+        "
+        alt="traduction"
+        class="pay-trad hover:scale-110"
+      />
+
+      <div
+        class="absolute top-[100%] flex flex-col gap-1 mt-1 z-7000000000000"
+        *ngIf="traductionVisibility"
+      >
+        <button
+          *ngFor="let icon of langagueIcones; let i = index"
+          (click)="changeLanguage(i)"
+        >
+          <img
+            *ngIf="i != 0"
+            [src]="
+              'assets/imgs/main_page/header/' + this.langagueIcones[i] + '.png'
+            "
+            alt=""
+            class="pay-trad"
+          />
+        </button>
+      </div>
+    </button>
+
+    <!-- connection/inscreption -->
+    <a
+      class="label"
+      [routerLink]="[listButton[0]]"
+      (click)="headerService.selectPage(6)"
+      [ngClass]="{ active: 6 === headerService.currentPage }"
+    >
+      {{ fixedPathTranslate + "BUTTONS.BUTTON_1" | translate }}
+    </a>
+    <a
+      [routerLink]="[listButton[1]]"
+      (click)="headerService.selectPage(7)"
+      (click)="headerService.switchToAccountCreation()"
+      >{{ fixedPathTranslate + "BUTTONS.BUTTON_2" | translate }}</a
+    >
+
+    <!-- Responsive Menu -->
+    <div class="menu">
+      <button
+        (click)="
+          headerService.isMenuOpen = !headerService.isMenuOpen;
+          headerService.OpenChatIa = false
+        "
+      >
+        <img
+          [src]="
+            '../../../assets/imgs/main_page/header/' +
+            (headerService.isMenuOpen ? 'croix' : 'menu') +
+            '.png'
+          "
+          class="pay-trad"
+          alt=""
+        />
+      </button>
+      <div
+        class="rounded-lg shadow-md absolute top-12 right-0 w-48 under-menu z-7000000000000 bg-black/50 border-2 border-gray-700"
+        *ngIf="headerService.isMenuOpen"
+      >
+        <div *ngFor="let chose of listMenu; let i = index" class="">
+          <a
+            [routerLink]="[listMenu[i].link]"
+            (click)="
+              headerService.selectPage(i); headerService.isMenuOpen = false
+            "
+          >
+            {{ fixedPathTranslate + "ITEMS." + chose.name | translate }}</a
+          >
+        </div>
+
+        <!-- connection/inscreption -->
+        <div>
+          <a
+            [routerLink]="[listButton[0]]"
+            (click)="headerService.isMenuOpen = false"
+          >
+            {{ fixedPathTranslate + "BUTTONS.BUTTON_1" | translate }}</a
+          >
+        </div>
+        <div>
+          <a
+            [routerLink]="[listButton[1]]"
+            (click)="headerService.isMenuOpen = false"
+            >{{ fixedPathTranslate + "BUTTONS.BUTTON_2" | translate }}</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div style="height: 60px !important"></div>

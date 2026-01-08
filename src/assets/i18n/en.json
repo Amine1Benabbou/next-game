@@ -1,0 +1,151 @@
+{
+  "NEXT_GAME": {
+    "HEADER": {
+      "ITEMS": {
+        "ITEM_1": "Home",
+        "ITEM_2": "Services",
+        "ITEM_3": "Help",
+        "ITEM_4": "FAQ",
+        "ITEM_5": "Contact"
+      },
+      "BUTTONS": {
+        "BUTTON_1": "Sign In",
+        "BUTTON_2": "Sign Up",
+        "BUTTON_3": "Logout",
+        "BUTTON_4": "Save"
+      }
+    },
+    "HEADER_2": {
+      "BUTTON" : "Logout",
+      "BUTTON_1" : "Save",
+      "BUTTON_2" : "Home"
+
+    },
+    "SECTION_1": {
+      "TITLE": "Ready to discover your next GAME?",
+      "SUBTITLE": "You're exactly where you need to be!",
+      "PARAGRAPH_2": "Uncover new games, surprises with every episode!",
+      "PARAGRAPH_3": "Whether you're a gaming enthusiast or just curious, you'll find titles here to enjoy."
+    },
+    "SECTION_2": {
+      "TITLE": "Dive into our memories in pictures!",
+      "SUBTITLE": "Enjoy an animated gallery",
+      "PARAGRAPH_2": "Experience our best moments through an immersive, interactive, and dynamic gallery."
+    },
+    "SECTION_3": {
+      "TITLE": "Enter the draw!",
+      "SUBTITLE": "Enter your email for a chance to win a prize in our raffle 🎁",
+      "PLACEHOLDER": "Your email address",
+      "SUCCESS_MESSAGE": "We have recorded your email. Good luck!",
+      "BUTTON_1": "Enter the draw",
+      "ERRORS": {
+        "ERROR_1": "Please enter a valid email address",
+        "ERROR_2": "Please enter a valid email address"
+      }
+    },
+    "CONNECT_US": {
+      "TITLE": "Contact Us",
+      "CHAMP_1": "Last Name",
+      "CHAMP_2": "First Name",
+      "CHAMP_3": "Subject",
+      "CHAMP_4": "E-mail",
+      "CHAMP_5": "Phone number",
+      "CHAMP_6": "Message",
+      "CHAMP_7": "(Optional)",
+      "BUTTON": "Send",
+      "ERRORS": {
+        "ERROR_1": "Please fill in all fields",
+        "ERROR_2": "Please enter a valid email address",
+        "ERROR_3": "Please enter a valid phone number",
+        "ERROR_4": "Please enter a valid message"
+      }
+    },
+    "AUTHENTICATION": {
+      "TITLE": "Sign In",
+      "BUTTON": "Sign In",
+      "PLACEHOLDER_1": "Email or number",
+      "PLACEHOLDER_2": "Password",
+      "LINK_1": "Forgot password?",
+      "LINK_2_P_1": "Don't have an account?",
+      "LINK_2_P_2": "Sign up",
+      "ERRORS": {
+        "ERROR_1": "Please complete all fields",
+        "ERROR_2": "Password must be at least 8 characters",
+        "ERROR_3": "The email address entered is not valid",
+        "ERROR_4": "Please enter a valid email and password"
+      }
+    },
+    "CREATE_ACCOUNT": {
+      "TITLE": "Create an account",
+      "BUTTON": "Create account",
+      "PLACEHOLDER_FIRSTNAME": "First Name",
+      "PLACEHOLDER_LASTNAME": "Last Name",
+      "PLACEHOLDER_1": "Email",
+      "PLACEHOLDER_2": "Password",
+      "PLACEHOLDER_CONFIRM_PASSWORD": "Confirm password",
+      "LINK_2_P_1": "Already have an account?",
+      "LINK_2_P_2": "Sign in",
+      "ERRORS": {
+        "ERROR_1": "Please complete all fields",
+        "ERROR_2": "Password must be at least 8 characters",
+        "ERROR_3": "The email address entered is not valid",
+        "ERROR_4": "Please enter a valid email and password"
+      }
+    },
+    "FAQ": {
+      "TITLE": "Frequently Asked Questions"
+    },
+    "FOOTER": {
+      "COLUMN_1": {
+        "CONTENT": "Gaming at your service, whenever you want."
+      },
+      "COLUMN_2": {
+        "TITLE": "Navigation",
+        "ITEMS": {
+          "ITEM_1": "Overview",
+          "ITEM_2": "VIP Private Concierge",
+          "ITEM_3": "Consultant",
+          "ITEM_4": "Recording studio",
+          "ITEM_5": "Domain",
+          "ITEM_6": "Media"
+        }
+      },
+      "COLUMN_3": {
+        "TITLE": "Legal",
+        "ITEMS": {
+          "ITEM_1": "Legal notice",
+          "ITEM_2": "Privacy policy",
+          "ITEM_3": "Terms and conditions",
+          "ITEM_4": "Cookies"
+        }
+      },
+      "COLUMN_4": {
+        "TITLE": "Contact"
+      },
+      "RIGHTS": "All rights reserved."
+    },
+    "FINALE_CTA": {
+      "TITLE": "Want to dive into the world of exceptional gaming?",
+      "SUBTITLE": "Join our passionate community now and discover why thousands of players choose NextGAME for a unique gaming adventure.",
+      "BUTTON_1": "Explore our games now",
+      "BUTTON_2": "Tell us about your needs for tailored advice"
+    },
+    "SECTION_1_MAIN_PAGE": {
+      "SUBTITLE": "Discover the best site to choose your video games."
+    },
+    "LIST_SAVE": {
+      "TITLE": "Saved games list",
+      "RELEASED": "Released",
+      "PREVIOUS": "Previous",
+      "NEXT": "Next",
+      "METACRITIC": "Metacritic",
+      "REVIEWS": "reviews"
+    },
+    "LISTE_SAVE": {
+      "TITLE": "Saved games list",
+      "RELEASED": "Released",
+      "METACRITIC": "Metacritic",
+      "REVIEWS": "reviews"
+    }
+  }
+}

@@ -1,0 +1,141 @@
+<div
+  class="auth-bg-auth p-3 flex items-center justify-center flex-col gap-2 min-w-full min-h-full min-w-screen"
+>
+  <!-- Title -->
+  <div
+    class="flex justify-center items-center gap-1 py-1 animate-fade-down flex-wrap bg-black/70 px-8 rounded-full shadow-lg min-w-max"
+  >
+    <!-- ton SVG + NextGame (inchangé) -->
+  </div>
+
+  <!-- Carte du formulaire -->
+  <div
+    class="container-form w-full max-w-md mx-auto bg-black/70 shadow-xl inset-shadow-sm rounded-3xl py-6 px-8 max-sm:px-3 flex flex-col items-center relative form-annimation"
+  >
+    <h2
+      class="text-4xl font-semibold text-white mb-6 text-center max-sm:text-2xl"
+      style="
+        background: linear-gradient(to top, #e5e5e5 0%, #f6f6f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      "
+    >
+      {{ fixedPathTranslate + "TITLE" | translate }}
+    </h2>
+
+    <!-- IMPORTANT: ngSubmit au lieu de click -->
+    <form class="w-full flex flex-col gap-5 mt-5" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Email -->
+      <div
+        class="flex justify-between items-center gap-2 w-full py-3 px-4 rounded-full shadow-md border-2 border-gray-100"
+      >
+        <input
+          type="email"
+          formControlName="email"
+          class="w-full focus:outline-none transition text-white bg-transparent"
+          [placeholder]="fixedPathTranslate + 'PLACEHOLDER_1' | translate"
+          (focus)="errorMessage = ''"
+          autocomplete="email"
+        />
+      </div>
+
+      <!-- Password -->
+      <div
+        class="flex justify-between items-center gap-2 w-full py-3 px-4 rounded-full shadow-md border-2 border-gray-100"
+      >
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          formControlName="password"
+          class="flex-1 focus:outline-none transition text-white bg-transparent"
+          [placeholder]="fixedPathTranslate + 'PLACEHOLDER_2' | translate"
+          (focus)="errorMessage = ''"
+          autocomplete="current-password"
+        />
+
+        <!-- un seul bouton, type=button pour ne pas soumettre le form -->
+        <button type="button" (click)="togglePassword()" class="p-0 m-0">
+          <svg
+            *ngIf="!showPassword"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            fill="currentColor"
+          >
+            <g fill="none" stroke="white" stroke-linejoin="round" stroke-width="2">
+              <path
+                d="M29 16c0 3-5.82 9-13 9S3 19 3 16s5.82-9 13-9s13 6 13 9Z"
+              />
+              <path d="M21 16a5 5 0 1 1-10 0a5 5 0 0 1 10 0Z" />
+            </g>
+          </svg>
+
+          <svg
+            *ngIf="showPassword"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            fill="currentColor"
+          >
+            <path
+              fill="none"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 16a5 5 0 0 1-5 5m-5-5a5 5 0 0 1 5-5m-3 13.654A13.38 13.38 0 0 0 16 25c7.18 0 13-6 13-9c0-1.336-1.155-3.268-3.071-5M19.5 7.47A13.49 13.49 0 0 0 16 7C8.82 7 3 13 3 16c0 1.32 1.127 3.22 3 4.935M7 25L25 7"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Loading -->
+      <div class="flex items-center justify-center" *ngIf="isLoading">
+        <div class="w-9 h-9 border-3 border-gray-400 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+
+      <!-- Erreur -->
+      <div *ngIf="errorMessage" class="text-center text-base font-normal text-red-700">
+        {{ errorMessage | translate }}
+      </div>
+
+      <!-- Submit -->
+      <div class="text-center px-3">
+        <button
+          type="submit"
+          [disabled]="isLoading || form.invalid"
+          class="min-w-3/4 max-lg:w-full text-white text-lg font-semibold px-8 py-2 rounded-full shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-indigo-300 hover:cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+          style="
+            background: linear-gradient(to left, #1b1b1b 0%, #1f1f1f 40%, #181818 150%),
+                        linear-gradient(to top, rgba(255, 255, 255, 0.4) 0%, rgba(0, 0, 0, 0.25) 200%);
+            background-blend-mode: multiply;
+          "
+        >
+          {{ fixedPathTranslate + "BUTTON" | translate }}
+        </button>
+
+        <div class="flex items-center space-x-2 mt-4">
+          <hr class="flex-grow border-white" />
+          <span class="text-zinc-200 text-sm">OR</span>
+          <hr class="flex-grow border-white" />
+        </div>
+      </div>
+    </form>
+
+    <a
+      [routerLink]="['../forget-password']"
+      class="mt-2 text-white hover:underline font-medium hover:cursor-pointer hover-font"
+    >
+      {{ fixedPathTranslate + "LINK_1" | translate }}
+    </a>
+
+    <a [routerLink]="['/main-page/create-account']" class="mt-3 self-end max-sm:text-center">
+      <span class="text-white">{{ fixedPathTranslate + "LINK_2_P_1" | translate }}</span>
+      <span class="hover-font text-gray-200 underline font-semibold text-lg hover:cursor-pointer hover:text-white">
+        {{ fixedPathTranslate + "LINK_2_P_2" | translate }}
+      </span>
+    </a>
+  </div>
+</div>

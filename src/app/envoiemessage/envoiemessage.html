@@ -1,0 +1,13 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <input formControlName="nom" placeholder="Nom">
+  <input formControlName="prenom" placeholder="Prénom">
+  <input formControlName="objet" placeholder="Objet">
+  <input formControlName="email" placeholder="E-mail (optionnel)">
+  <input formControlName="telephone" placeholder="Téléphone">
+  <textarea formControlName="message" placeholder="Votre message"></textarea>
+
+  <button type="submit" [disabled]="loading">Envoyer</button>
+
+  <p *ngIf="successMsg">{{ successMsg }}</p>
+  <p *ngIf="errorMsg">{{ errorMsg }}</p>
+</form>

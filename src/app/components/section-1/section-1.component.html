@@ -1,0 +1,132 @@
+<div class="bg-img min-h-[calc(100vh-80px)] h-[calc(100vh-80px)] w-screen max-xl:h-max max-xl:min-h-max max-xl:pb-5">
+  <div class="h-full w-full grid grid-cols-2 max-xl:grid-cols-1 min-h-full">
+    <div class="h-full w-full px-5 flex flex-col justify-center max-xl:mt-4">
+      <!-- ================================>title -->
+      <div
+        class="flex justify-center items-center gap-1 py-2 animate-fade-down flex-wrap bg-black/50 max-w-max px-6 mx-auto rounded-full "
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-14 w-14 text-white max-xl:h-10 max-xl:w-10"
+          viewBox="0 0 256 256"
+        >
+          <path
+            fill="currentColor"
+            d="M176 112h-24a8 8 0 0 1 0-16h24a8 8 0 0 1 0 16Zm-72-16h-8v-8a8 8 0 0 0-16 0v8h-8a8 8 0 0 0 0 16h8v8a8 8 0 0 0 16 0v-8h8a8 8 0 0 0 0-16Zm137.48 104.65a36 36 0 0 1-54.94 4.81c-.12-.12-.24-.24-.35-.37L146.48 160h-37l-39.67 45.09l-.35.37A36.08 36.08 0 0 1 44 216a36 36 0 0 1-35.44-42.25a.68.68 0 0 1 0-.14l16.37-84.09A59.88 59.88 0 0 1 83.89 40H172a60.08 60.08 0 0 1 59 49.25v.18l16.37 84.17a.68.68 0 0 1 0 .14a35.74 35.74 0 0 1-5.89 26.91ZM172 144a44 44 0 0 0 0-88H83.89a43.9 43.9 0 0 0-43.21 36.37v.13L24.3 176.59A20 20 0 0 0 58 194.3l41.92-47.59a8 8 0 0 1 6-2.71Zm59.7 32.59l-8.74-45A60 60 0 0 1 172 160h-4.2l30.2 34.31a20.09 20.09 0 0 0 17.46 5.39a20 20 0 0 0 16.23-23.11Z"
+          />
+        </svg>
+        <div
+          class="text-3xl font-semibold animate-fade-in max-xl:text-2xl"
+
+        >
+          <span
+            class="text-4xl font-semibold animate-fade-in max-xl:text-3xl"
+            style="
+              background: linear-gradient(to top, #d1d1d1 0%, #e9e9e9 100%);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              background-clip: text;
+              animation-delay: 0.4s;
+              animation-fill-mode: both;
+            "
+            >Next</span
+          >
+          <span
+            class="text-4xl font-semibold animate-fade-in max-xl:text-3xl"
+            style="
+              background: linear-gradient(to top, #e9e9e9 0%, #eeeeee 100%);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              background-clip: text;
+              animation-delay: 0.6s;
+              animation-fill-mode: both;
+            "
+            >Game</span
+          >
+        </div>
+      </div>
+
+      <!-- ================================>paragraph -->
+      <div
+        class="bg-black/40 rounded-4xl px-5 mt-3 flex flex-col flex-1 max-h-[72%] justify-around max-xl:py-5 max-xl:max-h-max"
+      >
+        <div
+          class="mt-3 flex flex-col gap-3 animate-fade-down"
+          style="
+            background: linear-gradient(to top, #dfdfdf 0%, #d7d7d7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation-delay: 0.4s;
+            animation-fill-mode: both;
+          "
+        >
+          <div class="text-5xl font-bold max-xl:text-center max-md:text-4xl">
+            {{ fixedPathTranslate + "TITLE" | translate }}
+          </div>
+          <div
+            class="text-4xl font-bold max-xl:text-center max-md:text-3xl mt-6"
+          >
+            {{ fixedPathTranslate + "SUBTITLE" | translate }}
+          </div>
+        </div>
+
+        <div
+          class="mt-3 flex flex-col gap-2 animate-fade-down"
+          style="
+            background: linear-gradient(to top, #dfdfdf 0%, #ebebeb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation-delay: 0.8s;
+            animation-fill-mode: both;
+          "
+        >
+          <div class="text-2xl font-medium max-xl:text-center max-md:text-xl">
+            {{ fixedPathTranslate + "PARAGRAPH_2" | translate }}
+          </div>
+          <div class="text-2xl font-medium max-xl:text-center max-md:text-xl">
+            {{ fixedPathTranslate + "PARAGRAPH_3" | translate }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================>images -->
+    <div class="h-full w-full max-xl:mt-10 max-xl:max-w-[95%] max-xl:mx-auto max-xl:h-max max-xl:min-h-max">
+      <div class="grid grid-rows-2 grid-cols-2 h-full w-full p-8 max-xl:p-0 max-xl:gap-3 flex-wrap [&>div]:max-xl:min-h-[300px]">
+        <div
+          style="animation-delay: 0.1s"
+          class="enhanced-fade-in p-5 rounded-4xl overflow-hidden max-xl:p-0"
+        >
+          <img
+            src="assets/imgs/main_page/section-1/21.jpg"
+            alt="Image 1"
+            class="w-full h-full object-cover rounded-4xl"
+          />
+        </div>
+        <div style="animation-delay: 0.3s" class="enhanced-fade-in p-5 max-xl:p-0">
+          <img
+            src="assets/imgs/main_page/section-1/2.jpg"
+            alt="Image 2"
+            class="w-full h-full object-cover rounded-4xl"
+          />
+        </div>
+        <div style="animation-delay: 0.5s" class="enhanced-fade-in p-5 max-xl:p-0">
+          <img
+            src="assets/imgs/main_page/section-1/3.jpg"
+            alt="Image 3"
+            class="w-full h-full object-cover rounded-4xl"
+          />
+        </div>
+        <div style="animation-delay: 0.7s" class="enhanced-fade-in p-5 max-xl:p-0">
+          <img
+            src="assets/imgs/main_page/section-1/4.jpg"
+            alt="Image 4"
+            class="w-full h-full object-cover rounded-4xl"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

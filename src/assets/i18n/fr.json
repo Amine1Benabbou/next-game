@@ -1,0 +1,171 @@
+{
+  "NEXT_GAME": {
+
+    "HEADER": {
+      "ITEMS": {
+        "ITEM_1": "Accueil",
+        "ITEM_2": "Services",
+        "ITEM_3": "Aide",
+        "ITEM_4": "FAQ",
+        "ITEM_5": "Contact"
+      },
+
+      "BUTTONS": {
+        "BUTTON_1": "Se connecter",
+        "BUTTON_2": "S'inscrire",
+        "BUTTON_3": "Déconnexion",
+        "BUTTON_4": "Enregistrer"
+      }
+    },
+
+    "HEADER_2": {
+      "BUTTON" : "Déconnexion",
+      "BUTTON_1" : "Sauvegarder",
+      "BUTTON_2" : "Accueil"
+    },
+
+    "SECTION_1": {
+      "TITLE": "Prêt à découvrir ton prochain GAME ?",
+      "SUBTITLE": "Tu es exactement là où il faut !",
+      "PARAGRAPH_2": "Découvrez des jeux inédits, des surprises à chaque épisode !",
+      "PARAGRAPH_3": "Que vous soyez passionné de jeux vidéo ou simplement curieux, vous trouverez ici des titres qui vous plairont."
+    },
+
+    "SECTION_2": {
+      "TITLE": "Plonge dans nos souvenirs en images !",
+      "SUBTITLE": "Profite d’une galerie animée",
+      "PARAGRAPH_2": "Découvre nos moments forts à travers une expérience de galerie immersive, interactive et dynamique."
+    },
+
+    "SECTION_3": {
+      "TITLE": "Participe au tirage au sort !",
+      "SUBTITLE": "Entre ton e-mail pour tenter de gagner un cadeau dans notre tombola 🎁",
+      "PLACEHOLDER": "Votre adresse e-mail",
+      "SUCCESS_MESSAGE": "Nous avons bien enregistré votre e-mail. Bonne chance !",
+      "BUTTON_1": "Participer au tirage au sort",
+
+      "ERRORS": {
+        "ERROR_1": "Veuillez entrer une adresse e-mail valide",
+        "ERROR_2": "Veuillez entrer une adresse e-mail valide"
+      }
+    },
+
+    "CONNECT_US": {
+      "TITLE": "Contactez-nous",
+      "CHAMP_1": "Nom",
+      "CHAMP_2": "Prénom",
+      "CHAMP_3": "Objet",
+      "CHAMP_4": "E-mail",
+      "CHAMP_5": "Numéro de téléphone",
+      "CHAMP_6": "Message",
+      "CHAMP_7": "(Optionnel)",
+      "BUTTON": "Envoyer",
+
+      "ERRORS": {
+        "ERROR_1": "Veuillez remplir tous les champs",
+        "ERROR_2": "Veuillez entrer une adresse e-mail valide",
+        "ERROR_3": "Veuillez entrer un numéro de téléphone valide",
+        "ERROR_4": "Veuillez entrer un message valide"
+      }
+    },
+
+    "AUTHENTICATION": {
+      "TITLE": "Se connecter",
+      "BUTTON": "Connexion",
+      "PLACEHOLDER_1": "Email ou numéro",
+      "PLACEHOLDER_2": "Mot de passe",
+      "LINK_1": "Mot de passe oublié ?",
+      "LINK_2_P_1": "Vous n'avez pas de compte?",
+      "LINK_2_P_2": "Inscrivez-vous",
+      "ERRORS": {
+        "ERROR_1": "Merci de compléter tous les champs",
+        "ERROR_2": "Le mot de passe doit contenir au moins 8 caractères",
+        "ERROR_3": "L’adresse e-mail saisie n’est pas valide",
+        "ERROR_4": "Veuillez saisir une adresse e-mail et un mot de passe valides"
+      }
+    },
+
+    "CREATE_ACCOUNT": {
+      "TITLE": "Créer un compte",
+      "BUTTON": "Créer un compte",
+      "PLACEHOLDER_FIRSTNAME": "Prénom",
+      "PLACEHOLDER_LASTNAME": "Nom",
+      "PLACEHOLDER_1": "Email",
+      "PLACEHOLDER_2": "Mot de passe",
+      "PLACEHOLDER_CONFIRM_PASSWORD": "Confirmer le mot de passe",
+      "LINK_2_P_1": "Vous avez déjà un compte?",
+      "LINK_2_P_2": "Connectez-vous",
+      "ERRORS": {
+        "ERROR_1": "Merci de compléter tous les champs",
+        "ERROR_2": "Le mot de passe doit contenir au moins 8 caractères",
+        "ERROR_3": "L’adresse e-mail saisie n’est pas valide",
+        "ERROR_4": "Veuillez saisir une adresse e-mail et un mot de passe valides"
+      }
+    },
+
+    "FAQ" : {
+      "TITLE" : "Questions fréquentes"
+    },
+
+    "FOOTER": {
+      "COLUMN_1": {
+        "CONTENT": "Le gaming à votre service, quand vous le voulez."
+      },
+
+      "COLUMN_2": {
+        "TITLE": "Navigation",
+        "ITEMS": {
+          "ITEM_1": "Présentation",
+          "ITEM_2": "Conciergerie privée VIP",
+          "ITEM_3": "Consultant",
+          "ITEM_4": "Studio d'enregeistrement",
+          "ITEM_5": "Domaine",
+          "ITEM_6": "Médias"
+        }
+      },
+
+      "COLUMN_3": {
+        "TITLE": "Légal",
+        "ITEMS": {
+          "ITEM_1": "Mentions légales",
+          "ITEM_2": "Politique de confidentialité",
+          "ITEM_3": "Conditions générales",
+          "ITEM_4": "Cookies"
+        }
+      },
+
+      "COLUMN_4": {
+        "TITLE": "Contact"
+      },
+
+      "RIGHTS": "Tous droits réservés."
+    },
+
+    "FINALE_CTA": {
+      "TITLE": "Envie de plonger dans l'univers du gaming d'exception ?",
+      "SUBTITLE": "Rejoignez dès maintenant notre communauté passionnée et découvrez pourquoi des milliers de joueurs choisissent NextGAME pour vivre une aventure vidéoludique unique.",
+      "BUTTON_1": "Explorez nos jeux sans attendre",
+      "BUTTON_2": "Parlez-nous de vos besoins pour des conseils sur-mesure"
+    },
+
+    "SECTION_1_MAIN_PAGE": {
+      "SUBTITLE": "Découvre le meilleur site pour choisir tes jeux vidéo."
+    },
+
+    "LIST_SAVE": {
+      "TITLE": "Liste des jeux enregistrés",
+      "RELEASED": "Sortie",
+      "PREVIOUS": "Précédent",
+      "NEXT": "Suivant",
+      "METACRITIC": "Metacritic",
+      "REVIEWS": "avis"
+    },
+
+    "LISTE_SAVE": {
+      "TITLE": "Liste des jeux enregistrés",
+      "RELEASED": "Sortie",
+      "METACRITIC": "Metacritic",
+      "REVIEWS": "avis"
+    }
+  }
+}

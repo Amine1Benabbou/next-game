@@ -1,0 +1,145 @@
+<header
+  class="header flex-component text-white"
+  style="position: sticky; z-index: 700000000000"
+>
+  <!-- Brand name -->
+  <a
+    class="flex-component left-side flex-component animated-label"
+    [routerLink]="[listMenu[0].link]"
+  >
+    <span class="label">Next</span><span class="label">GAME</span>
+  </a>
+
+  <!-- Menu -->
+  <div class="flex-component middle-side"></div>
+
+  <div class="flex-component right-side flex items-center">
+    <!-- Translate -->
+    <!-- Translate -->
+    <button
+      class="flex-component relative cursor-pointer"
+      (click)="traductionVisibility = !traductionVisibility"
+    >
+      <img
+        [src]="
+          'assets/imgs/main_page/header/' + this.langagueIcones[0] + '.png'
+        "
+        alt="traduction"
+        class="pay-trad hover:scale-110"
+      />
+
+      <div
+        class="absolute top-[100%] flex flex-col gap-1 mt-1 z-7000000000000"
+        *ngIf="traductionVisibility"
+      >
+        <button
+          *ngFor="let icon of langagueIcones; let i = index"
+          (click)="changeLanguage(i)"
+          class="cursor-pointer"
+        >
+          <img
+            *ngIf="i != 0"
+            [src]="
+              'assets/imgs/main_page/header/' + this.langagueIcones[i] + '.png'
+            "
+            alt=""
+            class="pay-trad"
+          />
+        </button>
+      </div>
+    </button>
+
+    <!-- connection/inscreption -->
+    <a
+      class="label"
+      [routerLink]="[listButton[0]]"
+      (click)="headerService.selectPage(6)"
+      [ngClass]="{ active: 6 === headerService.currentPage }"
+    >
+      <svg
+        class="w-9 h-9"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.89 5.87988H5.10999C3.39999 5.87988 2 7.27987 2 8.98987V20.3499C2 21.7999 3.04 22.4199 4.31 21.7099L8.23999 19.5199C8.65999 19.2899 9.34 19.2899 9.75 19.5199L13.68 21.7099C14.95 22.4199 15.99 21.7999 15.99 20.3499V8.98987C16 7.27987 14.6 5.87988 12.89 5.87988Z"
+          stroke="white"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M16 8.98987V20.3499C16 21.7999 14.96 22.4099 13.69 21.7099L9.76001 19.5199C9.34001 19.2899 8.65999 19.2899 8.23999 19.5199L4.31 21.7099C3.04 22.4099 2 21.7999 2 20.3499V8.98987C2 7.27987 3.39999 5.87988 5.10999 5.87988H12.89C14.6 5.87988 16 7.27987 16 8.98987Z"
+          stroke="white"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M22 5.10999V16.47C22 17.92 20.96 18.53 19.69 17.83L16 15.77V8.98999C16 7.27999 14.6 5.88 12.89 5.88H8V5.10999C8 3.39999 9.39999 2 11.11 2H18.89C20.6 2 22 3.39999 22 5.10999Z"
+          stroke="white"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </a>
+    <a
+      [routerLink]="[listButton[1]]"
+      (click)="headerService.selectPage(7)"
+      (click)="headerService.switchToAccountCreation()"
+      >{{ fixedPathTranslate + "BUTTON" | translate }}</a
+    >
+
+    <!-- Responsive Menu -->
+    <div class="menu">
+      <button
+        (click)="
+          headerService.isMenuOpen = !headerService.isMenuOpen;
+          headerService.OpenChatIa = false
+        "
+      >
+        <img
+          [src]="
+            '../../../assets/imgs/main_page/header/' +
+            (headerService.isMenuOpen ? 'croix' : 'menu') +
+            '.png'
+          "
+          class="pay-trad"
+          alt=""
+        />
+      </button>
+      <div
+        class="rounded-lg shadow-md absolute top-12 right-0 w-48 under-menu z-7000000000000 bg-black/50 border-2 border-gray-700"
+        *ngIf="headerService.isMenuOpen"
+      >
+      <div>
+        <a
+          [routerLink]="['/page-user']"
+          (click)="headerService.isMenuOpen = false"
+        >
+          {{ fixedPathTranslate + "BUTTON_2" | translate }}</a
+        >
+      </div>
+        <!-- connection/inscreption -->
+        <div>
+          <a
+            [routerLink]="[listButton[0]]"
+            (click)="headerService.isMenuOpen = false"
+          >
+            {{ fixedPathTranslate + "BUTTON_1" | translate }}</a
+          >
+        </div>
+        <div>
+          <a
+            [routerLink]="[listButton[1]]"
+            (click)="headerService.isMenuOpen = false"
+            >{{ fixedPathTranslate + "BUTTON" | translate }}</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div style="height: 60px !important"></div>

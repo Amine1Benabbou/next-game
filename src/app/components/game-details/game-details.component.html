@@ -1,0 +1,169 @@
+<div *ngIf="loading" class="min-h-[calc(100vh-80px)] h-[calc(100vh-80px)] min-w-screen max-xl:h-max max-xl:min-h-max max-xl:pb-5 flex items-center justify-center">
+  <div
+  class="animate-spin rounded-full h-12 w-12 border-4 border-gray-300 border-t-blue-500"
+></div>
+</div>
+
+<div
+  *ngIf="!loading && game"
+  class="min-h-[calc(100vh-80px)] h-[calc(100vh-80px)] min-w-screen max-xl:h-max max-xl:min-h-max max-xl:pb-5 flex flex-wrap max-xl:flex-col"
+>
+  <!-- Image -->
+  <img
+    [src]="game.background_image"
+    alt="{{ game.name }}"
+    class="w-full min-h-full object-cover flex-2 max-md:min-h-[400px]"
+  />
+
+  <!-- Contenu -->
+  <div
+    class="relative p-5 space-y-3 flex-2 bg-gradient-to-tr from-black to-gray-900 overflow-scroll"
+  >
+    <!-- ==========================> button save <================================= -->
+    <button
+      class="absolute top-3 right-3 z-50 cursor-pointer hover:scale-105"
+      *ngIf="!listeSave.getStatusId(game.id)"
+      (click)="listeSave.addElementToListeSaveById(game.id)"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-11 h-11"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="transparent"
+          stroke="white"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="M6 6.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C7.52 3 8.08 3 9.2 3h5.6c1.12 0 1.68 0 2.108.218a2 2 0 0 1 .874.874C18 4.52 18 5.08 18 6.2v13.305c0 .486 0 .729-.101.862a.5.5 0 0 1-.37.198c-.167.01-.369-.125-.773-.394L12 17l-4.756 3.17c-.404.27-.606.405-.774.395a.5.5 0 0 1-.369-.198C6 20.234 6 19.991 6 19.505z"
+        />
+      </svg>
+    </button>
+    <button
+      class="absolute top-3 right-3 z-50 cursor-pointer hover:scale-105"
+      *ngIf="listeSave.getStatusId(game.id)"
+      (click)="listeSave.deleteElementFromListeSaveById(game.id)"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-11 h-11"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="white"
+          stroke="white"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="M6 6.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C7.52 3 8.08 3 9.2 3h5.6c1.12 0 1.68 0 2.108.218a2 2 0 0 1 .874.874C18 4.52 18 5.08 18 6.2v13.305c0 .486 0 .729-.101.862a.5.5 0 0 1-.37.198c-.167.01-.369-.125-.773-.394L12 17l-4.756 3.17c-.404.27-.606.405-.774.395a.5.5 0 0 1-.369-.198C6 20.234 6 19.991 6 19.505z"
+        />
+      </svg>
+    </button>
+
+    <!-- ==========================> game name <================================= -->
+    <div
+      class="text-3xl font-bold"
+      style="
+        background: linear-gradient(to top, #e3e3e3 0%, #f6f6f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation-delay: 0.4s;
+        animation-fill-mode: both;
+      "
+    >
+      {{ game.name }}
+    </div>
+
+    <!-- ==========================> release date <================================= -->
+    <div class="flex items-center gap-2">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-6 h-6"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="white"
+          d="M22 2.25h-3.25V.75a.75.75 0 0 0-1.5-.001V2.25h-4.5V.75a.75.75 0 0 0-1.5-.001V2.25h-4.5V.75a.75.75 0 0 0-1.5-.001V2.25H2a2 2 0 0 0-2 1.999v17.75a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V4.249a2 2 0 0 0-2-1.999zM22.5 22a.5.5 0 0 1-.499.5H2a.5.5 0 0 1-.5-.5V4.25a.5.5 0 0 1 .5-.499h3.25v1.5a.75.75 0 0 0 1.5.001V3.751h4.5v1.5a.75.75 0 0 0 1.5.001V3.751h4.5v1.5a.75.75 0 0 0 1.5.001V3.751H22a.5.5 0 0 1 .499.499z"
+        />
+        <path
+          fill="white"
+          d="M5.25 9h3v2.25h-3zm0 3.75h3V15h-3zm0 3.75h3v2.25h-3zm5.25 0h3v2.25h-3zm0-3.75h3V15h-3zm0-3.75h3v2.25h-3zm5.25 7.5h3v2.25h-3zm0-3.75h3V15h-3zm0-3.75h3v2.25h-3z"
+        />
+      </svg>
+      <span class="font-medium text-lg text-gray-200">Release</span>
+      <span class="font-bold text-xl text-white">{{ game.released }}</span>
+    </div>
+
+    <!-- ===========================> rating <================================= -->
+    <div class="flex items-center gap-1 mt-2">
+      <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
+        <path
+          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.972a1 1 0 0 0 .95.69h4.178c.969 0 1.371 1.24.588 1.81l-3.382 2.457a1 1 0 0 0-.364 1.118l1.287 3.973c.3.921-.755 1.688-1.538 1.118l-3.381-2.457a1 1 0 0 0-1.176 0l-3.381 2.457c-.783.57-1.838-.197-1.539-1.118l1.287-3.973a1 1 0 0 0-.364-1.118L2.045 9.399c-.783-.57-.38-1.81.588-1.81h4.178a1 1 0 0 0 .95-.69l1.286-3.972z"
+        />
+      </svg>
+      <span class="text-white font-semibold text-lg">
+        Rating
+        <span class="text-white font-bold">{{
+          game.rating | number : "1.1-2"
+        }}</span>
+        <span class="text-gray-300 font-medium">/ 5</span>
+        <span *ngIf="game.ratings_count"
+          >&nbsp;({{ game.ratings_count }} votes)</span
+        >
+      </span>
+    </div>
+
+    <!-- ===========================> genres <================================= -->
+    <div>
+      <h3 class="font-bold text-2xl text-gray-200 mb-1 mt-6">Genres</h3>
+      <div class="flex flex-wrap gap-2 mt-2">
+        <span
+          *ngFor="let g of game.genres"
+          class="px-5 py-1 rounded-full text-base text-white border-2 border-white"
+          style="background: linear-gradient(90deg, #02113a 0%, #000123 100%)"
+        >
+          {{ g.name }}
+        </span>
+      </div>
+    </div>
+
+    <!-- ===========================> platforms <================================= -->
+    <div>
+      <h3 class="font-bold text-2xl text-gray-200 mb-1 mt-4">Platforms</h3>
+      <div class="flex flex-wrap gap-2 mt-2">
+        <span
+          *ngFor="let p of game.platforms"
+          class="px-5 py-1 rounded-full text-base text-white border-2 border-white"
+          style="background: linear-gradient(90deg, #02113a 0%, #000123 100%)"
+        >
+          {{ p.platform.name }}
+        </span>
+      </div>
+    </div>
+
+    <!-- ===========================> description <================================= -->
+    <div class="mt-6">
+      <div
+        class="font-bold text-2xl text-gray-200 mb-1 flex items-center gap-1"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6 text-white"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            fill="currentColor"
+            d="M8 18h8v-2H8v2Zm0-4h8v-2H8v2Zm-4 8V2h10l6 6v14H4Zm9-13V4H6v16h12V9h-5ZM6 4v5v-5v16V4Z"
+          />
+        </svg>
+        Description
+      </div>
+      <p class="text-white text-lg" [innerHTML]="game.description"></p>
+    </div>
+
+
+  </div>
+</div>

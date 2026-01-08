@@ -1,0 +1,238 @@
+<div class="flex flex-col pb-5">
+  <!-- ======================> Title <================================ -->
+  <div class="flex items-center justify-center mt-2">
+    <div
+      class="text-5xl font-semibold enhanced-fade-in max-xl:text-2xl py-3"
+      style="
+        background: linear-gradient(to top, #f0f0f0 0%, #eeeeee 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation-delay: 0.9s;
+        animation-fill-mode: both;
+      "
+    >
+      {{ fixedPathTranslate + "TITLE" | translate }}
+    </div>
+  </div>
+
+  <!-- ======================> FInd Barre <================================ -->
+  <div
+    class="find-barre flex items-center bg-transparent rounded-full border-2 border-gray-100 px-3 py-2 shadow-white/15 shadow-md max-w-screen-lg mx-auto mt-2 min-w-[50%] z-50"
+  >
+    <input
+      type="text"
+      class="flex-1 outline-none bg-transparent text-white text-base"
+      placeholder="Rechercher..."
+      aria-label="Recherche"
+      [(ngModel)]="search"
+      (input)="getGamesBySearch(search)"
+    />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-6 h-6 text-white hover:text-gray-700"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <circle cx="11" cy="11" r="8" stroke-width="2" />
+      <line
+        x1="21"
+        y1="21"
+        x2="16.65"
+        y2="16.65"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+    </svg>
+  </div>
+
+  <!-- =====================================> Loading <==================================== -->
+  <div *ngIf="loading" class="flex items-center justify-center mt-5">
+    <div
+      class="animate-spin rounded-full h-12 w-12 border-4 border-gray-300 border-t-blue-500"
+    ></div>
+  </div>
+
+  <!-- =====================================>  -->
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-5 px-3"
+    id="list-game-id"
+  >
+    <a
+      [routerLink]="['/page-user/game', game.id]"
+      *ngFor="let game of games"
+      class="relative min-w-full bg-gradient-to-br from-[#060a11] via-[#0c121e] to-[#060917] rounded-2xl overflow-hidden duration-300 border border-gray-800 flex flex-col max-w-xs mx-auto group cursor-pointer"
+      (click)="$event.stopPropagation(); $event.preventDefault()"
+    >
+      <button
+        class="absolute top-3 right-3 z-50 cursor-pointer hover:scale-105"
+        *ngIf="!listeSave.getStatusId(game.id)"
+        (click)="
+          listeSave.addElementToListeSaveById(game.id);
+          $event.stopPropagation();
+          $event.preventDefault()
+        "
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-10 h-10"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="transparent"
+            stroke="black"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            d="M6 6.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C7.52 3 8.08 3 9.2 3h5.6c1.12 0 1.68 0 2.108.218a2 2 0 0 1 .874.874C18 4.52 18 5.08 18 6.2v13.305c0 .486 0 .729-.101.862a.5.5 0 0 1-.37.198c-.167.01-.369-.125-.773-.394L12 17l-4.756 3.17c-.404.27-.606.405-.774.395a.5.5 0 0 1-.369-.198C6 20.234 6 19.991 6 19.505z"
+          />
+        </svg>
+      </button>
+      <button
+        class="absolute top-3 right-3 z-50 cursor-pointer hover:scale-105"
+        *ngIf="listeSave.getStatusId(game.id)"
+        (click)="
+          listeSave.deleteElementFromListeSaveById(game.id);
+          $event.stopPropagation();
+          $event.preventDefault()
+        "
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-10 h-10"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="black"
+            stroke="black"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            d="M6 6.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C7.52 3 8.08 3 9.2 3h5.6c1.12 0 1.68 0 2.108.218a2 2 0 0 1 .874.874C18 4.52 18 5.08 18 6.2v13.305c0 .486 0 .729-.101.862a.5.5 0 0 1-.37.198c-.167.01-.369-.125-.773-.394L12 17l-4.756 3.17c-.404.27-.606.405-.774.395a.5.5 0 0 1-.369-.198C6 20.234 6 19.991 6 19.505z"
+          />
+        </svg>
+      </button>
+      <!-- ====================> Cover <================================ -->
+      <div class="relative w-full h-52 md:h-48 xl:h-52 overflow-hidden">
+        <img
+          [src]="game.background_image"
+          alt="{{ game.name }}"
+          class="w-full h-full object-cover rounded-t-2xl transition-transform duration-400 group-hover:scale-105"
+        />
+        <span
+          class="absolute top-3 left-3 bg-gradient-to-r from-blue-700 to-blue-500 px-3 py-1 text-base font-semibold text-white rounded-full shadow backdrop-blur-sm tracking-wide"
+        >
+          {{ game.ratings_count }}
+        </span>
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"
+        ></div>
+      </div>
+
+      <!-- ====================> Content <================================ -->
+      <div class="flex-1 p-4 flex flex-col justify-between">
+        <div>
+          <h2
+            class="text-xl font-bold text-white mb-2 tracking-tight drop-shadow-md line-clamp-2"
+            style="letter-spacing: 0.01em"
+          >
+            {{ game.name }}
+          </h2>
+          <p class="text-gray-400 text-base font-medium mb-2 flex items-center">
+            <span class="flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4 text-gray-200 mr-1 mb-0.5"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill="white"
+                  d="M14.5 16h-13C.67 16 0 15.33 0 14.5v-12C0 1.67.67 1 1.5 1h13c.83 0 1.5.67 1.5 1.5v12c0 .83-.67 1.5-1.5 1.5ZM1.5 2c-.28 0-.5.22-.5.5v12c0 .28.22.5.5.5h13c.28 0 .5-.22.5-.5v-12c0-.28-.22-.5-.5-.5h-13Z"
+                />
+                <path
+                  fill="white"
+                  d="M4.5 4c-.28 0-.5-.22-.5-.5v-3c0-.28.22-.5.5-.5s.5.22.5.5v3c0 .28-.22.5-.5.5Zm7 0c-.28 0-.5-.22-.5-.5v-3c0-.28.22-.5.5-.5s.5.22.5.5v3c0 .28-.22.5-.5.5Zm4 2H.5C.22 6 0 5.78 0 5.5S.22 5 .5 5h15c.28 0 .5.22.5.5s-.22.5-.5.5Z"
+                />
+              </svg>
+              <span class="font-semibold text-gray-200">{{ fixedPathTranslate + "RELEASED" | translate }}: </span>
+            </span>
+            <span class="text-white/90 ml-1">{{ game.released }}</span>
+          </p>
+        </div>
+        <!-- Rating & Reviews -->
+        <div class="flex items-center gap-1 mb-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-4 h-4 text-yellow-400"
+            viewBox="0 0 36 36"
+          >
+            <path
+              fill="#FFAC33"
+              d="M27.287 34.627c-.404 0-.806-.124-1.152-.371L18 28.422l-8.135 5.834a1.97 1.97 0 0 1-2.312-.008a1.971 1.971 0 0 1-.721-2.194l3.034-9.792l-8.062-5.681a1.98 1.98 0 0 1-.708-2.203a1.978 1.978 0 0 1 1.866-1.363L12.947 13l3.179-9.549a1.976 1.976 0 0 1 3.749 0L23 13l10.036.015a1.975 1.975 0 0 1 1.159 3.566l-8.062 5.681l3.034 9.792a1.97 1.97 0 0 1-.72 2.194a1.957 1.957 0 0 1-1.16.379z"
+            />
+          </svg>
+          <span class="text-white text-base font-semibold"
+            >{{ game.rating }}/5</span
+          >
+          <span class="text-gray-400 text-xs"
+            >| {{ game.ratings_count }} {{ fixedPathTranslate + "REVIEWS" | translate }}</span
+          >
+        </div>
+
+        <!-- ==========================> BUTTON <================================ -->
+        <div class="mt-auto flex items-center pt-3 justify-center">
+          <span
+            class="px-6 py-1 rounded-full font-bold text-base shadow transition-colors text-white bg-gradient-to-r from-green-600 via-green-700 to-green-800"
+          >
+            {{ fixedPathTranslate + "METACRITIC" | translate }}: {{ game.metacritic ?? "-" }}
+          </span>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- =====================================> Pagination <==================================== -->
+  <div class="flex items-center justify-center mt-5 gap-7">
+    <button
+      class="cursor-pointer px-4 py-2 rounded-full font-bold text-base shadow transition-colors text-white bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 flex items-center gap-2"
+      (click)="getPreviousGames()"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-4 w-4 mr-1"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 19l-7-7 7-7"
+        />
+      </svg>
+      {{ fixedPathTranslate + "PREVIOUS" | translate }}
+    </button>
+    <button
+      class="cursor-pointer px-4 py-2 rounded-full font-bold text-base shadow transition-colors text-white bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 flex items-center gap-2"
+      (click)="getNextGames()"
+    >
+      {{ fixedPathTranslate + "NEXT" | translate }}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-4 w-4 ml-1"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 5l7 7-7 7"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
