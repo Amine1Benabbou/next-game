@@ -1,0 +1,292 @@
+<div
+  class="create-account-bg p-3 flex items-center justify-center flex-col gap-2 min-w-full min-h-full min-w-screen"
+>
+  <!-- Title -->
+  <div
+    class="flex justify-center items-center gap-1 py-1 animate-fade-down flex-wrap bg-black/70 px-8 rounded-full shadow-lg min-w-max"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-14 w-14 text-white"
+      viewBox="0 0 256 256"
+    >
+      <path
+        fill="currentColor"
+        d="M176 112h-24a8 8 0 0 1 0-16h24a8 8 0 0 1 0 16Zm-72-16h-8v-8a8 8 0 0 0-16 0v8h-8a8 8 0 0 0 0 16h8v8a8 8 0 0 0 16 0v-8h8a8 8 0 0 0 0-16Zm137.48 104.65a36 36 0 0 1-54.94 4.81c-.12-.12-.24-.24-.35-.37L146.48 160h-37l-39.67 45.09l-.35.37A36.08 36.08 0 0 1 44 216a36 36 0 0 1-35.44-42.25a.68.68 0 0 1 0-.14l16.37-84.09A59.88 59.88 0 0 1 83.89 40H172a60.08 60.08 0 0 1 59 49.25v.18l16.37 84.17a.68.68 0 0 1 0 .14a35.74 35.74 0 0 1-5.89 26.91ZM172 144a44 44 0 0 0 0-88H83.89a43.9 43.9 0 0 0-43.21 36.37v.13L24.3 176.59A20 20 0 0 0 58 194.3l41.92-47.59a8 8 0 0 1 6-2.71Zm59.7 32.59l-8.74-45A60 60 0 0 1 172 160h-4.2l30.2 34.31a20.09 20.09 0 0 0 17.46 5.39a20 20 0 0 0 16.23-23.11Z"
+      />
+    </svg>
+    <div
+      class="text-3xl font-semibold animate-fade-in"
+      style="animation-delay: 0.25s; animation-fill-mode: both"
+    >
+      <span
+        class="text-3xl font-semibold animate-fade-in"
+        style="
+          background: linear-gradient(to top, #d2d2d2 0%, #d8d8d8 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation-delay: 0.4s;
+          animation-fill-mode: both;
+        "
+        >Next</span
+      >
+      <span
+        class="text-3xl font-semibold animate-fade-in"
+        style="
+          background: linear-gradient(to top, #d3d3d3 0%, #e3e3e3 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation-delay: 0.6s;
+          animation-fill-mode: both;
+        "
+        >Game</span
+      >
+    </div>
+  </div>
+  <!-- Carte du formulaire -->
+  <div
+    class="container-form w-full max-w-md mx-auto bg-black/70 shadow-xl inset-shadow-sm rounded-3xl py-6 px-8 max-sm:px-3 flex flex-col items-center relative form-annimation"
+  >
+    <!-- Titre -->
+    <h2
+      class="text-4xl font-semibold text-white mb-6 text-center max-sm:text-2xl"
+      style="
+        background: linear-gradient(to top, #e5e5e5 0%, #f6f6f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation-delay: 0.6s;
+        animation-fill-mode: both;
+      "
+    >
+      {{ this.fixedPathTranslate + "TITLE" | translate }}
+    </h2>
+
+    <!-- Formulaire -->
+    <form class="w-full flex flex-col gap-5 mt-5" >
+      <!-- Champ Prénom (First Name) -->
+      <div
+        class="flex justify-between items-center gap-2 w-full py-3 px-4 rounded-full shadow-md border-2 border-gray-100"
+      >
+        <input
+          type="text"
+          [(ngModel)]="firstName"
+          name="firstName"
+          class="w-full focus:outline-none transition text-white"
+          placeholder="{{ this.fixedPathTranslate + 'PLACEHOLDER_FIRSTNAME' | translate }}"
+          (click)="errorMessage = ''"
+          required
+        />
+      </div>
+
+      <!-- Champ Nom (Last Name) -->
+      <div
+        class="flex justify-between items-center gap-2 w-full py-3 px-4 rounded-full shadow-md border-2 border-gray-100"
+      >
+        <input
+          type="text"
+          [(ngModel)]="lastName"
+          name="lastName"
+          class="w-full focus:outline-none transition text-white"
+          placeholder="{{ this.fixedPathTranslate + 'PLACEHOLDER_LASTNAME' | translate }}"
+          (click)="errorMessage = ''"
+          required
+        />
+      </div>
+
+      <!-- Champ email -->
+      <div
+        class="flex justify-between items-center gap-2 w-full py-3 px-4 rounded-full shadow-md border-2 border-gray-100"
+      >
+        <input
+          type="email"
+          [(ngModel)]="mail"
+          name="email"
+          class="w-full focus:outline-none transition text-white  "
+          placeholder="{{
+            this.fixedPathTranslate + 'PLACEHOLDER_1' | translate
+          }}"
+          (click)="errorMessage = ''"
+          required
+          #emailRef="ngModel"
+        />
+      </div>
+
+      <!-- Champ mot de passe -->
+      <div
+        class="flex justify-between items-center gap-2 w-full py-3 px-4 rounded-full shadow-md border-2 border-gray-100"
+      >
+        <input
+          [type]="passwordEye ? 'text' : 'password'"
+          name="password"
+          class="flex-1 focus:outline-none focus:ring-0 focus:bg-transparent transition text-white"
+          placeholder="{{ fixedPathTranslate + 'PLACEHOLDER_2' | translate }}"
+          (click)="errorMessage = ''"
+          [(ngModel)]="password"
+          required
+        />
+        <button (click)="passwordEye = !passwordEye" class="p-0 m-0">
+          <svg
+            *ngIf="!passwordEye"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            fill="currentColor"
+          >
+            <g
+              fill="none"
+              stroke="white"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <path
+                d="M29 16c0 3-5.82 9-13 9S3 19 3 16s5.82-9 13-9s13 6 13 9Z"
+              />
+              <path d="M21 16a5 5 0 1 1-10 0a5 5 0 0 1 10 0Z" />
+            </g>
+          </svg>
+        </button>
+        <button (click)="passwordEye = !passwordEye" class="p-0 m-0">
+          <svg
+            *ngIf="passwordEye"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            fill="currentColor"
+          >
+            <path
+              fill="none"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 16a5 5 0 0 1-5 5m-5-5a5 5 0 0 1 5-5m-3 13.654A13.38 13.38 0 0 0 16 25c7.18 0 13-6 13-9c0-1.336-1.155-3.268-3.071-5M19.5 7.47A13.49 13.49 0 0 0 16 7C8.82 7 3 13 3 16c0 1.32 1.127 3.22 3 4.935M7 25L25 7"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Champ confirmation mot de passe -->
+      <div
+        class="flex justify-between items-center gap-2 w-full py-3 px-4 rounded-full shadow-md border-2 border-gray-100"
+      >
+        <input
+          [type]="confirmPasswordEye ? 'text' : 'password'"
+          name="confirmPassword"
+          class="flex-1 focus:outline-none focus:ring-0 focus:bg-transparent transition text-white"
+          placeholder="{{ fixedPathTranslate + 'PLACEHOLDER_CONFIRM_PASSWORD' | translate }}"
+          (click)="errorMessage = ''"
+          [(ngModel)]="confirmPassword"
+          required
+        />
+        <button (click)="confirmPasswordEye = !confirmPasswordEye" class="p-0 m-0">
+          <svg
+            *ngIf="!confirmPasswordEye"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            fill="currentColor"
+          >
+            <g
+              fill="none"
+              stroke="white"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <path
+                d="M29 16c0 3-5.82 9-13 9S3 19 3 16s5.82-9 13-9s13 6 13 9Z"
+              />
+              <path d="M21 16a5 5 0 1 1-10 0a5 5 0 0 1 10 0Z" />
+            </g>
+          </svg>
+        </button>
+        <button (click)="confirmPasswordEye = !confirmPasswordEye" class="p-0 m-0">
+          <svg
+            *ngIf="confirmPasswordEye"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            fill="white"
+          >
+            <path
+              fill="none"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 16a5 5 0 0 1-5 5m-5-5a5 5 0 0 1 5-5m-3 13.654A13.38 13.38 0 0 0 16 25c7.18 0 13-6 13-9c0-1.336-1.155-3.268-3.071-5M19.5 7.47A13.49 13.49 0 0 0 16 7C8.82 7 3 13 3 16c0 1.32 1.127 3.22 3 4.935M7 25L25 7"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!--Loadin cercle -->
+      <div class="flex items-center justify-center" *ngIf="isloading">
+        <div
+          class="w-9 h-9 border-3 border-gray-400 border-t-transparent rounded-full animate-spin"
+        ></div>
+      </div>
+
+      <!-- Message d'erreur -->
+      <div
+        *ngIf="errorMessage"
+        class="text-center text-base font-normal text-red-700"
+      >
+        {{ errorMessage | translate }}
+      </div>
+
+      <!-- Bouton d'envoi -->
+      <div class="text-center px-3">
+        <button
+          type="submit"
+          class="min-w-3/4 max-lg:w-full bg-gradient-to-r text-white text-lg font-semibold px-8 py-2 rounded-full shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-indigo-300 hover:cursor-pointer"
+          style="
+            background: linear-gradient(
+                to left,
+                #1b1b1b 0%,
+                #1f1f1f 40%,
+                #181818 150%
+              ),
+              linear-gradient(
+                to top,
+                rgba(255, 255, 255, 0.4) 0%,
+                rgba(0, 0, 0, 0.25) 200%
+              );
+            background-blend-mode: multiply;
+          "
+          (click)="createAccount()"
+        >
+          {{ this.fixedPathTranslate + "BUTTON" | translate }}
+        </button>
+
+        <!-- Ligne <Or> -->
+        <div class="flex items-center space-x-2 mt-4">
+          <hr class="flex-grow border-white dark:border-white" />
+          <span class="text-zinc-200 dark:text-zinc-200 text-sm">OR</span>
+          <hr class="flex-grow border-white dark:border-white" />
+        </div>
+      </div>
+    </form>
+
+
+
+    <!-- add account -->
+    <a
+      [routerLink]="['/auth']"
+      class="mt-3 self-end max-sm:text-center"
+      ><span class="text-white"
+        >{{ this.fixedPathTranslate + "LINK_2_P_1" | translate }}
+      </span>
+      <span
+        class="hover-font text-gray-200 underline font-semibold text-lg hover:cursor-pointer hover:text-white"
+        >{{ this.fixedPathTranslate + "LINK_2_P_2" | translate }}
+      </span></a
+    >
+  </div>
+</div>

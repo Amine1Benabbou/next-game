@@ -1,0 +1,37 @@
+.auth-bg-auth {
+  background-image: url('../../../assets/imgs/main_page/section-1/7.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.hover-font:hover {
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.05) !important;
+}
+
+input::placeholder {
+  color: #000;
+  opacity: 0.5;
+}
+
+.form-annimation {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+input::placeholder {
+  color: white  ; /* mets la couleur que tu veux */
+  opacity: 1; /* optionnel : éviter l’opacité réduite par défaut */
+}

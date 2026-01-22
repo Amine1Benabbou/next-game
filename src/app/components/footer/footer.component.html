@@ -1,0 +1,116 @@
+<footer
+  class="text-white pt-8 pb-4 border-t border-white/10"
+  style="
+    background-image: linear-gradient(to top, #000000 0%, rgb(0, 0, 0) 100%);
+  "
+>
+  <div
+    class="max-w-8xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 justify-around px-4 sm:px-6 lg:px-8"
+  >
+    <!-- Logo + Description -->
+    <div>
+      <a
+        routerLink="/"
+        class="text-3xl font-bold text-white hover:text-primary transition"
+      >
+        NextGAME
+      </a>
+      <p class="mt-4 text-gray-400 text-sm leading-relaxed">
+        {{ this.fixedPathTranslate + "COLUMN_1.CONTENT" | translate }}
+      </p>
+    </div>
+
+    <!-- Navigation principale -->
+    <div>
+      <h3 class="text-sm font-bold uppercase tracking-widest text-gray-300">
+        {{ this.fixedPathTranslate + "COLUMN_2.TITLE" | translate }}
+      </h3>
+      <ul class="mt-4 space-y-3">
+        <li *ngFor="let item of navigation.main">
+          <a
+            [routerLink]="item.href"
+            class="text-gray-400 hover:text-white transition-colors duration-200"
+          >
+            {{ item.name | translate }}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Liens légaux -->
+    <div>
+      <h3 class="text-sm font-bold uppercase tracking-widest text-gray-300">
+        {{ this.fixedPathTranslate + "COLUMN_3.TITLE" | translate }}
+      </h3>
+      <ul class="mt-4 space-y-3">
+        <li *ngFor="let item of navigation.legal">
+          <a
+            [routerLink]="item.href"
+            class="text-gray-400 hover:text-white transition-colors duration-200"
+          >
+            {{ item.name | translate }}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <h3 class="text-sm font-bold uppercase tracking-widest text-gray-300">
+        {{ this.fixedPathTranslate + "COLUMN_4.TITLE" | translate }}
+      </h3>
+      <ul class="mt-4 space-y-3">
+        <li
+          *ngFor="let item of navigation.contact"
+          class="flex items-center gap-3"
+        >
+          <img
+            class="w-8"
+            [src]="'assets/svgs/footer/' + item.icon + '.svg'"
+            alt="{{ item.icon }}"
+          />
+          <a
+            [href]="item.href"
+            class="flex items-center text-gray-400 hover:text-white transition-colors duration-200"
+          >
+            {{ item.name }}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- sOCIEL MEDIA -->
+    <div>
+      <h3 class="text-sm font-bold uppercase tracking-widest text-gray-300">
+        {{ this.fixedPathTranslate + "COLUMN_4.TITLE" | translate }}
+      </h3>
+      <ul class="mt-4 space-y-3">
+        <li
+          *ngFor="let item of navigation.socielMedia"
+          class="flex items-center gap-3"
+        >
+          <img
+            class="w-8"
+            [src]="'assets/svgs/footer/' + item.icon + '.svg'"
+            alt="{{ item.icon }}"
+          />
+          <a
+            [href]="item.href"
+            class="flex items-center text-gray-400 hover:text-white transition-colors duration-200"
+          >
+            {{ item.name }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer bottom -->
+  <div
+    class="mt-6 border-t border-gray-700 pt-4 text-center text-sm text-gray-500"
+  >
+    &copy; {{ currentYear }}
+    <span class="font-semibold text-white">NEXTGAME</span>.
+    {{ this.fixedPathTranslate + "RIGHTS" | translate }}
+  </div>
+</footer>
