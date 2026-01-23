@@ -1,64 +1,69 @@
 <footer
   class="text-white pt-8 pb-4 border-t border-white/10"
-  style="
-    background-image: linear-gradient(to top, #000000 0%, rgb(0, 0, 0) 100%);
-  "
+  style="background-image: linear-gradient(to top, #000000 0%, rgb(0, 0, 0) 100%)"
 >
+  <!-- Main container -->
   <div
-    class="max-w-8xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 justify-around px-4 sm:px-6 lg:px-8"
+    class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8
+           grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5
+           gap-10 justify-around"
   >
-    <!-- Logo + Description -->
-    <div>
+    <!-- Column 1 : Brand -->
+    <section>
       <a
         routerLink="/"
         class="text-3xl font-bold text-white hover:text-primary transition"
       >
         NextGAME
       </a>
-      <p class="mt-4 text-gray-400 text-sm leading-relaxed">
-        {{ this.fixedPathTranslate + "COLUMN_1.CONTENT" | translate }}
-      </p>
-    </div>
 
-    <!-- Navigation principale -->
-    <div>
+      <p class="mt-4 text-sm text-gray-400 leading-relaxed">
+        {{ fixedPathTranslate + "COLUMN_1.CONTENT" | translate }}
+      </p>
+    </section>
+
+    <!-- Column 2 : Main navigation -->
+    <section>
       <h3 class="text-sm font-bold uppercase tracking-widest text-gray-300">
-        {{ this.fixedPathTranslate + "COLUMN_2.TITLE" | translate }}
+        {{ fixedPathTranslate + "COLUMN_2.TITLE" | translate }}
       </h3>
+
       <ul class="mt-4 space-y-3">
         <li *ngFor="let item of navigation.main">
           <a
-            [routerLink]="item.href"
             class="text-gray-400 hover:text-white transition-colors duration-200"
+            [routerLink]="item.href"
           >
             {{ item.name | translate }}
           </a>
         </li>
       </ul>
-    </div>
+    </section>
 
-    <!-- Liens légaux -->
-    <div>
+    <!-- Column 3 : Legal -->
+    <section>
       <h3 class="text-sm font-bold uppercase tracking-widest text-gray-300">
-        {{ this.fixedPathTranslate + "COLUMN_3.TITLE" | translate }}
+        {{ fixedPathTranslate + "COLUMN_3.TITLE" | translate }}
       </h3>
+
       <ul class="mt-4 space-y-3">
         <li *ngFor="let item of navigation.legal">
           <a
-            [routerLink]="item.href"
             class="text-gray-400 hover:text-white transition-colors duration-200"
+            [routerLink]="item.href"
           >
             {{ item.name | translate }}
           </a>
         </li>
       </ul>
-    </div>
+    </section>
 
-    <!-- Contact -->
-    <div>
+    <!-- Column 4 : Contact -->
+    <section>
       <h3 class="text-sm font-bold uppercase tracking-widest text-gray-300">
-        {{ this.fixedPathTranslate + "COLUMN_4.TITLE" | translate }}
+        {{ fixedPathTranslate + "COLUMN_4.TITLE" | translate }}
       </h3>
+
       <ul class="mt-4 space-y-3">
         <li
           *ngFor="let item of navigation.contact"
@@ -67,23 +72,25 @@
           <img
             class="w-8"
             [src]="'assets/svgs/footer/' + item.icon + '.svg'"
-            alt="{{ item.icon }}"
+            [alt]="item.icon"
           />
+
           <a
             [href]="item.href"
-            class="flex items-center text-gray-400 hover:text-white transition-colors duration-200"
+            class="text-gray-400 hover:text-white transition-colors duration-200 flex items-center"
           >
             {{ item.name }}
           </a>
         </li>
       </ul>
-    </div>
+    </section>
 
-    <!-- sOCIEL MEDIA -->
-    <div>
+    <!-- Column 5 : Social media -->
+    <section>
       <h3 class="text-sm font-bold uppercase tracking-widest text-gray-300">
-        {{ this.fixedPathTranslate + "COLUMN_4.TITLE" | translate }}
+        {{ fixedPathTranslate + "COLUMN_4.TITLE" | translate }}
       </h3>
+
       <ul class="mt-4 space-y-3">
         <li
           *ngFor="let item of navigation.socielMedia"
@@ -92,25 +99,24 @@
           <img
             class="w-8"
             [src]="'assets/svgs/footer/' + item.icon + '.svg'"
-            alt="{{ item.icon }}"
+            [alt]="item.icon"
           />
+
           <a
             [href]="item.href"
-            class="flex items-center text-gray-400 hover:text-white transition-colors duration-200"
+            class="text-gray-400 hover:text-white transition-colors duration-200 flex items-center"
           >
             {{ item.name }}
           </a>
         </li>
       </ul>
-    </div>
+    </section>
   </div>
 
-  <!-- Footer bottom -->
-  <div
-    class="mt-6 border-t border-gray-700 pt-4 text-center text-sm text-gray-500"
-  >
-    &copy; {{ currentYear }}
+  <!-- Bottom -->
+  <div class="mt-6 border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
+    <span>&copy; {{ currentYear }}</span>
     <span class="font-semibold text-white">NEXTGAME</span>.
-    {{ this.fixedPathTranslate + "RIGHTS" | translate }}
+    <span>{{ fixedPathTranslate + "RIGHTS" | translate }}</span>
   </div>
 </footer>
