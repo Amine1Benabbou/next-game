@@ -2,12 +2,13 @@
   class="header flex-component text-white"
   style="position: sticky; z-index: 700000000000"
 >
-  <!-- Brand name -->
+  <!-- Brand -->
   <a
     class="flex-component left-side flex-component animated-label"
     [routerLink]="[listMenu[0].link]"
   >
-    <span class="label">Next</span><span class="label">GAME</span>
+    <span class="label">Next</span>
+    <span class="label">GAME</span>
   </a>
 
   <!-- Menu -->
@@ -30,48 +31,46 @@
       (click)="traductionVisibility = !traductionVisibility"
     >
       <img
-        [src]="
-          'assets/imgs/main_page/header/' + this.langagueIcones[0] + '.png'
-        "
-        alt="traduction"
         class="pay-trad hover:scale-110"
+        [src]="'assets/imgs/main_page/header/' + langagueIcones[0] + '.png'"
+        alt="traduction"
       />
 
       <div
-        class="absolute top-[100%] flex flex-col gap-1 mt-1 z-7000000000000"
         *ngIf="traductionVisibility"
+        class="absolute top-[100%] flex flex-col gap-1 mt-1 z-7000000000000"
       >
         <button
           *ngFor="let icon of langagueIcones; let i = index"
           (click)="changeLanguage(i)"
         >
           <img
-            *ngIf="i != 0"
-            [src]="
-              'assets/imgs/main_page/header/' + this.langagueIcones[i] + '.png'
-            "
-            alt=""
+            *ngIf="i !== 0"
             class="pay-trad"
+            [src]="'assets/imgs/main_page/header/' + icon + '.png'"
+            alt=""
           />
         </button>
       </div>
     </button>
 
-    <!-- connection/inscreption -->
+    <!-- Auth buttons -->
     <a
       class="label"
       [routerLink]="[listButton[0]]"
       (click)="headerService.selectPage(6)"
-      [ngClass]="{ active: 6 === headerService.currentPage }"
+      [ngClass]="{ active: headerService.currentPage === 6 }"
     >
       {{ fixedPathTranslate + "BUTTONS.BUTTON_1" | translate }}
     </a>
+
     <a
       [routerLink]="[listButton[1]]"
       (click)="headerService.selectPage(7)"
       (click)="headerService.switchToAccountCreation()"
-      >{{ fixedPathTranslate + "BUTTONS.BUTTON_2" | translate }}</a
     >
+      {{ fixedPathTranslate + "BUTTONS.BUTTON_2" | translate }}
+    </a>
 
     <!-- Responsive Menu -->
     <div class="menu">
@@ -82,48 +81,50 @@
         "
       >
         <img
+          class="pay-trad"
           [src]="
             '../../../assets/imgs/main_page/header/' +
             (headerService.isMenuOpen ? 'croix' : 'menu') +
             '.png'
           "
-          class="pay-trad"
           alt=""
         />
       </button>
+
       <div
-        class="rounded-lg shadow-md absolute top-12 right-0 w-48 under-menu z-7000000000000 bg-black/50 border-2 border-gray-700"
         *ngIf="headerService.isMenuOpen"
+        class="rounded-lg shadow-md absolute top-12 right-0 w-48 under-menu z-7000000000000 bg-black/50 border-2 border-gray-700"
       >
-        <div *ngFor="let chose of listMenu; let i = index" class="">
+        <div *ngFor="let chose of listMenu; let i = index">
           <a
-            [routerLink]="[listMenu[i].link]"
-            (click)="
-              headerService.selectPage(i); headerService.isMenuOpen = false
-            "
+            [routerLink]="[chose.link]"
+            (click)="headerService.selectPage(i); headerService.isMenuOpen = false"
           >
-            {{ fixedPathTranslate + "ITEMS." + chose.name | translate }}</a
-          >
+            {{ fixedPathTranslate + "ITEMS." + chose.name | translate }}
+          </a>
         </div>
 
-        <!-- connection/inscreption -->
+        <!-- Auth in responsive -->
         <div>
           <a
             [routerLink]="[listButton[0]]"
             (click)="headerService.isMenuOpen = false"
           >
-            {{ fixedPathTranslate + "BUTTONS.BUTTON_1" | translate }}</a
-          >
+            {{ fixedPathTranslate + "BUTTONS.BUTTON_1" | translate }}
+          </a>
         </div>
+
         <div>
           <a
             [routerLink]="[listButton[1]]"
             (click)="headerService.isMenuOpen = false"
-            >{{ fixedPathTranslate + "BUTTONS.BUTTON_2" | translate }}</a
           >
+            {{ fixedPathTranslate + "BUTTONS.BUTTON_2" | translate }}
+          </a>
         </div>
       </div>
     </div>
   </div>
 </header>
+
 <div style="height: 60px !important"></div>
