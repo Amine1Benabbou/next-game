@@ -1,8 +1,9 @@
-import { FireBaseService } from './../../services/fire-base.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { FireBaseService } from './../../services/fire-base.service';
 import { HeaderService } from '../../services/header.service';
 import { FixedModule } from '../../Fixed_module';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-authentication',
@@ -18,8 +19,9 @@ export class AuthenticationComponent implements OnInit {
   public fixedPathTranslate: string = 'NEXT_GAME.AUTHENTICATION.';
   public passwordEye: boolean = false;
 
-  constructor(private readonly headerService: HeaderService,
-    private readonly fireBaseService : FireBaseService,
+  constructor(
+    private readonly headerService: HeaderService,
+    private readonly fireBaseService: FireBaseService,
     private readonly router: Router
   ) {}
 
@@ -27,10 +29,10 @@ export class AuthenticationComponent implements OnInit {
     this.headerService.selectPage(6);
   }
 
-  private initVal() {
-    this.errorMessage = '';
-    this.password = '';
+  private initVal(): void {
     this.mail = '';
+    this.password = '';
+    this.errorMessage = '';
   }
 
   private checkForamtMail(mail: string): boolean {
@@ -38,31 +40,37 @@ export class AuthenticationComponent implements OnInit {
     return emailRegex.test(mail);
   }
 
-  public async authentication() {
+  public async authentication(): Promise<void> {
     if (!this.mail || !this.password) {
       this.errorMessage = this.fixedPathTranslate + 'ERRORS.ERROR_1';
       return;
     }
-    else if(!this.checkForamtMail(this.mail)){
+
+    if (!this.checkForamtMail(this.mail)) {
       this.errorMessage = this.fixedPathTranslate + 'ERRORS.ERROR_3';
       return;
     }
-    else if(this.password.length < 8){
+
+    if (this.password.length < 8) {
       this.errorMessage = this.fixedPathTranslate + 'ERRORS.ERROR_2';
       return;
     }
-    
+
     this.isloading = true;
     this.errorMessage = '';
-    
+
     try {
-      const res = await this.fireBaseService.signInWithEmailAndPassword(this.mail, this.password);
+      const res = await this.fireBaseService.signInWithEmailAndPassword(
+        this.mail,
+        this.password
+      );
+
       console.log('User signed in:', res);
       this.initVal();
       this.router.navigate(['/page-user']);
     } catch (err: any) {
       console.error('Sign in error:', err);
-      this.errorMessage = err.message || 'Failed to sign in';
+      this.errorMessage = err?.message || 'Failed to sign in';
     } finally {
       this.isloading = false;
     }
